@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="preload" as="image" href="img/Lasaña.webp" fetchpriority="high">
+  <title>Sapore d’Italia | Sabores y cultura gastronómica italiana</title>
+  <meta name="description" content="Sapore d’Italia es un sitio web que celebra la cultura gastronómica italiana, explorando sus regiones, tradiciones y sabores auténticos a través de una experiencia visual y educativa.">
+  <link rel="stylesheet" href="./css/style.min.css" />
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+<header>
+  <div class="logo">
+    <a href="index.html">
+      <img src="img/Pizzaa.webp" alt="Logo Sapore d'Italia" loading="lazy">
+    </a>
+  </div>
+  <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+      <li><a href="recetas.html">Recetas</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="buscar.html">Buscar</a></li> 
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="hero-image" data-aos="fade-in">
+  <picture>
+    <source srcset="img/Lasaña.webp" type="image/webp">
+    <img src="img/Lasaña.webp" alt="Lasaña italiana" class="bg-img" fetchpriority="high">
+  </picture>
+  <div class="overlay">
+    <h1>Sapore d'Italia</h1>
+    <p>Sapore d’Italia te invita a vivir un viaje culinario por el corazón de Italia.</p>
+  </div>
+  </section>
+    <section class="receta-preparacion" data-aos="fade-up">
+      <h2>Preparación</h2>
+      <article>
+        <p>
+          Ingredientes:
+          <ul>
+            <li>12 láminas de lasaña</li>
+            <li>500g de carne molida</li>
+            <li>1 cebolla picada</li>
+            <li>2 dientes de ajo picados</li>
+            <li>400g de salsa de tomate</li>
+            <li>250g de queso ricotta</li>
+            <li>200g de queso mozzarella rallado</li>
+            <li>100g de queso parmesano rallado</li>
+            <li>Sal y pimienta al gusto</li>
+            <li>Aceite de oliva</li>
+          </ul>
+          </p>
+        <p>
+          Instrucciones: <br />
+          1. Precalienta el horno a 180°C. <br />
+          2. Cocina las láminas de lasaña según las instrucciones del paquete. <br />
+          3. En una sartén grande, calienta un poco de aceite de oliva y sofríe la cebolla y el ajo hasta que estén dorados. <br />
+          4. Agrega la carne molida y cocina hasta que esté bien dorada. <br />
+          5. Incorpora la salsa de tomate, sal y pimienta. Cocina a fuego lento durante 15 minutos. <br />
+          6. En un recipiente aparte, mezcla el queso ricotta con un poco de sal y pimienta. <br />
+          7. En una fuente para horno, coloca una capa de salsa de carne, seguida de una capa de láminas de lasaña, luego una capa de queso ricotta y repite el proceso hasta terminar con una capa de salsa. <br />
+          8. Cubre con queso mozzarella y parmesano rallado. <br />     
+        </p>
+      </article>
+    </section>
+<section class="video-receta" data-aos="fade-up">
+      <h2>Video de la Receta</h2>
+      <div class="video-case">
+        <video controls poster="img/miniatura_receta.webp" loading="lazy">
+          <source src="vid/videoreceta.mp4" type="video/mp4" />
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+      </div>
+      <div class="acciones">
+        <button class="btn-accion" aria-label="Favorito"><i class="fa-regular fa-star"></i></button>
+        <button class="btn-accion" aria-label="Comentar"><i class="fa-regular fa-comment"></i></button>
+      </div>
+    </section>
+ <section class="mas-recetas" data-aos="zoom-in">
+      <h2>Más Recetas</h2>
+      <div class="recetas-grid">
+        <article class="receta">
+          <img src="img/Receta.webp" alt="Pasta" loading="lazy" />
+          <p>Pasta</p>
+        </article>
+        <article class="receta">
+          <img src="img/risotto.webp" alt="Risotto" loading="lazy" />
+          <p>Risotto</p>
+        </article>
+        <article class="receta">
+          <img src="img/gelato.webp" alt="Gelato" loading="lazy" />
+          <p>Gelato</p>
+        </article>
+        <article class="receta">
+          <img src="img/pizzanapolitana.webp" alt="Pizza napolitana" loading="lazy" />
+          <p>Pizza napolitana</p>
+        </article>
+      </div>
+    </section>
+<section class="comentarios-comunidad"  data-aos="fade-up">
+  <h2>Comentarios de la Comunidad</h2>
+  <textarea id="nuevoComentario" placeholder="Escribe tu comentario..."></textarea>
+  <button id="btnEnviarComentario">Enviar</button>
+  <div class="comentarios-grid" id="listaComentarios">
+  </div>
+</section>
+</main>
+<footer class="footer"  data-aos="fade-in">
+    <div class="footer-contenedor">
+      <section class="footer-col">
+        <h3>Sapore d'Italia</h3>
+        <aside class="footer-redes">
+          <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </aside>
+      </section>
+<nav class="footer-col">
+        <h4>Recetas</h4>
+        <ul>
+          <li><a href="#">Lasaña</a></li>
+          <li><a href="#">Pasta</a></li>
+          <li><a href="#">Postres</a></li>
+        </ul>
+      </nav>
+<nav class="footer-col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="#">Historia</a></li>
+          <li><a href="#">Regiones</a></li>
+        </ul>
+      </nav>
+ <nav class="footer-col">
+        <h4>Comunidad</h4>
+        <ul>
+          <li><a href="#">Comentarios</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+ <div class="footer-bottom">
+      <p>
+        © 2025 Sapore d’Italia — 
+        <a href="#">Términos de uso</a> |
+        <a href="#">Política de privacidad</a> |
+        <a href="#">Licencias</a> |
+        <a href="#">Contacto</a>
+      </p>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,    
+  });
+</script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>

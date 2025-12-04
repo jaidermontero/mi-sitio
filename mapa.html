@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa Interactivo | Sapore d’Italia</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <link rel="stylesheet" href="./css/style.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: var(--fuente-principal, sans-serif);
+      background-color: var(--color-beige);
+    }
+    #mapaItalia {
+      width: 100%;
+      height: 90vh;
+      margin-top: 60px;
+      border-radius: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #000000b3;
+      color: white;
+      padding: 10px 40px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .volver {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      background-color: var(--color-rojo-intenso, #8B0000);
+      padding: 8px 15px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .volver:hover {
+      background-color: #b30000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mapa Interactivo</h1>
+    <a href="index.html" class="volver">Volver</a>
+  </header>
+
+  <div id="mapaItalia"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mapa = L.map('mapaItalia').setView([41.8719, 12.5674], 6);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+      }).addTo(mapa);
+
+      const lugares = [
+        { nombre: 'Roma 🍕', coords: [41.9028, 12.4964], desc: 'Capital de Italia y corazón de la gastronomía romana.' },
+        { nombre: 'Nápoles 🍅', coords: [40.8518, 14.2681], desc: 'Cuna de la pizza napolitana.' },
+        { nombre: 'Florencia 🍷', coords: [43.7696, 11.2558], desc: 'Tierra del vino toscano y el arte renacentista.' },
+        { nombre: 'Venecia 🍝', coords: [45.4408, 12.3155], desc: 'Famosa por su cocina marina y su encanto único.' }
+      ];
+
+      lugares.forEach((lugar) => {
+        L.marker(lugar.coords)
+          .addTo(mapa)
+          .bindPopup(`<b>${lugar.nombre}</b><br>${lugar.desc}`);
+      });
+    });
+  </script>
+</body>
+</html>

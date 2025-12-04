@@ -1,0 +1,815 @@
+:root {
+  /* Colores */
+  --color-beige: #FEF7ED;
+  --color-beige-suave: #F5F5DC;
+  --color-verde-oliva: #142917;
+  --color-rojo-vino: #180507;
+  --color-rojo-intenso: #8B0000;
+  --color-borde: #c0392b;
+  --color-blanco: #FFFFFF;
+  --color-negro: #000000;
+  --color-egshell: #F2EAD3;
+
+  /* Tipografías */
+  --fuente-principal: 'Roboto', sans-serif, Arial, sans-serif;
+  --fuente-titulos: 'Libre Bodoni', serif, Georgia, serif;
+  --fuente-footer: 'Poppins', sans-serif, Verdana, sans-serif;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* Fondo general */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-beige);
+  font-family: var(--fuente-principal);
+}
+/* Encabezado con logo y buscador */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000b3;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  z-index: 1000;
+}
+.logo img {
+  height: 60px;
+}
+.navbar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* Navegación escritorio */
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.navbar ul li a:hover {
+  color: var(--color-beige-suave);
+}
+/* Botón hamburguesa oculto en PC */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+/* Imagen destacada con gradiente oscuro */
+.hero-image {
+  height: 80vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--color-blanco);
+  padding: 0 20px;
+  font-family: var(--fuente-titulos);
+  overflow: hidden;
+}
+
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.5); /* Simula el gradiente oscuro */
+}
+
+.overlay h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+.overlay p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  max-width: 600px;
+  margin: 0 auto;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+   font-family: var(--fuente-principal);
+}
+/* Botones de navegación del carrusel */
+.dot-navigation {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+  z-index: 10;
+}
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+.dot.active {
+  background-color: var(--color-rojo-intenso);
+}
+/* Sección Mapa Interactivo */
+.mapa {
+    background-color: var(--color-beige-suave);
+  padding: 80px 10%;
+  text-align: center;
+}
+/* Título del mapa */
+.mapa h2 {
+  text-align: center;
+  font-family: var(--fuente-titulos);
+  font-size: 2.2em;
+  color: var(--color-verde-oliva);
+  margin-bottom: 40px;
+}
+/* Grid responsivo para los ítems del mapa */
+.mapa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+/* Cada ítem del mapa */
+.mapa-item {
+  text-align: center;
+}
+.mapa-item img:hover {
+  transform: scale(1.1);
+}
+/* Imagen dentro del ítem */
+.mapa-item img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+/* Texto debajo de la imagen */
+.mapa-item figcaption {
+  font-size: 1.1em;
+  color: var(--color-rojo-vino);
+  margin: 0;
+  font-weight: 500;
+}
+/* Sección de Temas Populares */
+.temas {
+  text-align: center;
+  padding: 60px 10%;
+}
+.temas h2 {
+  font-size: 2.2em;
+  font-family: var(--fuente-titulos);
+  margin-bottom: 40px;
+  color: var(--color-verde-oliva);
+}
+.temas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+.tema {
+  text-align: center;
+  max-width: 150px;
+}
+.tema img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--color-rojo-intenso); 
+  transition: transform 0.3s ease;
+}
+.tema img:hover {
+  transform: scale(1.1);
+}
+.tema p {
+  margin-top: 10px;
+  font-weight: 500;
+  color: var(--color-rojo-vino);
+  font-size: 1.1em;
+}
+/* Sección Historia del Día */
+.historia-dia {
+  padding: 60px 10%;
+  background-color: var(--color-beige-suave);
+  font-family: var(--fuente-titulos);
+}
+/* Título */
+.historia-dia h2 {
+  font-size: 2.2em;
+  color: var(--color-verde-oliva);
+  margin-bottom: 30px;
+  text-align: center;
+}
+/* Contenedor del video */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.video-container video {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 10px;
+  border: 4px solid var(--color-borde);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+/* Botones de acción */
+.acciones {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+.btn-accion {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.btn-accion:hover {
+  transform: scale(1.2);
+  color: var(--color-rojo-intenso);
+}
+.btn-accion:focus {
+  outline: 2px solid var(--color-rojo-intenso);
+}
+/* Sección principal Comentarios de la Comunidad */
+.comentarios-comunidad {
+  padding: 60px 10%;
+  background-color: var(--color-beige);
+  font-family: var(--fuente-principal);
+}
+.comentarios-comunidad h2 {
+  font-size: 2.2em;
+  color: var(--color-verde-oliva);
+  margin-bottom: 40px;
+  text-align: center;
+  font-family: var(--fuente-titulos);
+}
+.comentarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+.comentario {
+  background-color: var(--color-beige-suave);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.comentario:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+.comentario img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  align-self: flex-start;
+}
+.comentario p {
+  font-size: 1.1em;
+  color: var(--color-rojo-vino);
+  margin: 0;
+  line-height: 1.5;
+}
+.comentario span {
+  font-size: 0.85em;
+  color: var(--color-rojo-intenso);
+  text-align: right;
+  font-weight: bold;
+}
+#nuevoComentario {
+  width: 100%;
+  max-width: 350px;
+  height: 50px;
+  padding: 10px 12px;
+  border: 2px solid var(--color-rojo-intenso);
+  border-radius: 10px;
+  resize: none;
+  font-family: var(--fuente-principal);
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 15px;
+}
+#nuevoComentario:focus {
+  border-color: var(--color-verde-oliva);
+}
+#btnEnviarComentario {
+  background-color: var(--color-rojo-intenso);
+  color: var(--color-blanco);
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: var(--fuente-principal);
+  box-shadow: 0 4px 10px rgba(139, 0, 0, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  align-self: flex-end; 
+  margin-top: 15px;
+}
+
+/* Hover / active / focus */
+#btnEnviarComentario:hover {
+  background-color: #b30000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(139, 0, 0, 0.18);
+}
+#btnEnviarComentario:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(139, 0, 0, 0.12);
+}
+#btnEnviarComentario:focus {
+  outline: 3px solid rgba(20, 41, 23, 0.12);
+  outline-offset: 2px;
+}
+
+/* Estado deshabilitado */
+#btnEnviarComentario:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* En móviles ocupar todo el ancho */
+@media (max-width: 768px) {
+  #btnEnviarComentario {
+    width: 100%;
+    align-self: stretch;
+    padding: 12px 18px;
+  }
+}
+/* Estilos del footer */
+footer {
+  background-color: var(--color-beige-suave);
+  padding: 60px 10% 30px;
+  color: var(--color-rojo-vino);
+  font-family: 'Poppins', sans-serif;
+}
+.footer-contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+.footer h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+.footer h4 {
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+.footer ul li {
+  margin: 6px 0;
+}
+.footer ul li a {
+  text-decoration: none;
+  color: var(--color-verde-oliva);
+  transition: color 0.3s;
+}
+.footer ul li a:hover {
+  color: var(--color-rojo-intenso);
+}
+.footer-redes a {
+  font-size: 1.5em;
+  margin-right: 15px;
+  color: var(--color-negro);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-redes a:hover {
+  color: var(--color-rojo-intenso);
+}
+.footer-bottom {
+  border-top: 1px solid rgba(0,0,0,0.2);
+  text-align: center;
+  padding-top: 15px;
+  font-size: 0.9em;
+}
+.footer-bottom a {
+  color: var(--color-negro);
+  text-decoration: none;
+  margin: 0 5px;
+}
+.footer-bottom a:hover {
+  color: var(--color-rojo-intenso);
+}
+/* Estilos específicos para la página de recetas */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-beige);
+  font-family: var(--fuente-principal);
+}
+/* Sección de preparación */
+.receta-preparacion {
+  padding: 60px 10%;
+  background-color: var(--color-beige-suave);
+  font-family: var(--fuente-principal);
+}
+/* Título */
+.receta-preparacion h2 {
+  font-size: 2.2em;
+  color: var(--color-verde-oliva);
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: var(--fuente-titulos);
+}
+/* Contenido del artículo */
+.receta-preparacion article {
+  background-color: var(--color-egshell);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  line-height: 1.6;
+  font-size: 1.1em;
+  color: var(--color-rojo-vino);
+  max-width: 800px;
+  margin: 0 auto;
+  transition: box-shadow 0.3s ease;
+}
+.receta-preparacion article:hover {
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+/* Sección Video Receta */
+.video-receta {
+  padding: 60px 10%;
+  background-color: var(--color-beige);
+  font-family: var(--fuente-titulos);
+}
+.video-receta h2 {
+  font-size: 2.2em;
+  color: var(--color-verde-oliva);
+  margin-bottom: 30px;
+  text-align: center;
+}
+/* Contenedor del video receta */
+.video-case {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.video-case video {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 10px;
+  border: 4px solid var(--color-borde);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+/* Botones de acción */
+.acciones {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+.btn-accion {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.btn-accion:hover {
+  transform: scale(1.2);
+  color: var(--color-rojo-intenso);
+}
+.btn-accion:focus {
+  outline: 2px solid var(--color-rojo-intenso);
+}
+/* Sección de Más Recetas */
+.mas-recetas {
+  text-align: center;
+  padding: 60px 10%;
+  background-color: var(--color-beige-suave);
+}
+.mas-recetas h2 {
+  font-size: 2.2em;
+  font-family: var(--fuente-titulos);
+  margin-bottom: 40px;
+  color: var(--color-verde-oliva);
+}
+.recetas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+.receta {
+  text-align: center;
+  max-width: 150px;
+}
+.receta img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--color-rojo-intenso); 
+  transition: transform 0.3s ease;
+}
+.receta img:hover {
+  transform: scale(1.1);
+}
+.receta p {
+  margin-top: 10px;
+  font-weight: 500;
+  color: var(--color-rojo-vino);
+   font-size: 1.1em;
+}
+/* Sección Imagen Destacada de la Receta */
+.hero-image-receta {
+  height: 80vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--color-blanco);
+  padding: 0 20px;
+  font-family: var(--fuente-titulos);
+  overflow: hidden;
+}
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.5); /* Simula el gradiente oscuro */
+}
+.overlay h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+   font-family: 'Libre Bodoni', serif;
+}
+.overlay p {
+  font-size: 1.2em;
+  max-width: 600px;
+  margin: 0 auto;
+}
+/* Sección principal Comentarios de la Comunidad */
+.comentarios-receta{
+  padding: 60px 10%;
+  background-color: var(--color-beige);
+  font-family: var(--fuente-principal);
+}
+/* Título */
+.comentarios-receta h2 {
+  font-size: 2.2em;
+  color: var(--color-verde-oliva);
+  margin-bottom: 40px;
+  text-align: center;
+  font-family: var(--fuente-titulos);
+}
+/* Grid de comentarios */
+.comentarios-receta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+/* Cada comentario */
+.coment {
+  background-color: var(--color-beige-suave);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.coment:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+/* Imagen del usuario */
+.coment img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  align-self: flex-start;
+}
+/* Texto del comentario */
+.coment p {
+  font-size: 1.1em;
+  color: var(--color-rojo-vino);
+  margin: 0;
+  line-height: 1.5;
+}
+/* Autor del comentario */
+.coment span {
+  font-size: 0.85em;
+  color: var(--color-rojo-intenso);
+  text-align: right;
+  font-weight: bold;
+}
+/* --- ESTILO DE MENÚ EN ESCRITORIO --- */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important; /* ocultar hamburguesa en escritorio */
+  }
+.navbar {
+    display: flex !important; /* mostrar el menú normal */
+    position: absolute !important;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+    z-index: 1000;
+  }
+  .navbar ul {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 25px !important;
+    list-style: none;
+  }
+  .navbar li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .navbar li a:hover {
+    color: #f5f5dc;
+  }
+}
+/* --- ESTILO DE MENÚ EN MÓVIL --- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .navbar.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar a {
+    color: #fff;
+    font-size: 1.4rem;
+    text-decoration: none;
+  }
+  .navbar a:hover {
+    color: #f5f5dc;
+  }
+}
+@media (min-width: 769px) {
+  .navbar {
+    top: 30px !important; 
+  }
+  .navbar ul {
+    gap: 30px !important; 
+  }
+  header {
+    padding-top: 10px; 
+    padding-bottom: 10px;
+  }
+}
+footer {
+  background-color: var(--color-beige-suave);
+  padding: 60px 10% 30px;
+  color: var(--color-rojo-vino);
+  font-family: 'Poppins', sans-serif;
+}   
+.mapa-preview {
+  position: relative;
+  display: inline-block;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.mapa-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0.7);
+  transition: transform 0.3s ease;
+}
+.mapa-preview:hover img {
+  transform: scale(1.05);
+}
+.overlay-mapa {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  font-family: var(--fuente-titulos);
+}
+.btn-mapa {
+  background-color: var(--color-rojo-intenso);
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.btn-mapa:hover {
+  background-color: #b30000;
+}
