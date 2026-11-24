@@ -68,14 +68,22 @@ const lista = document.getElementById('listaComentarios');
 const input = document.getElementById('nuevoComentario');
 
 btnEnviar.addEventListener('click', () => {
-  if (input.value.trim() !== '') {
+  const texto = input.value.trim();
+  if (texto !== '') {
     const nuevo = document.createElement('article');
     nuevo.classList.add('comentario');
-    nuevo.innerHTML = `
-      <img src="img/usuario.webp" alt="Nuevo usuario" />
-      <p>"${input.value}"</p>
-      <span>Nuevo usuario</span>
-    `;
+
+    const img = document.createElement('img');
+    img.src = 'img/usuario.webp';
+    img.alt = 'Nuevo usuario';
+
+    const p = document.createElement('p');
+    p.textContent = `"${texto}"`;
+
+    const autor = document.createElement('span');
+    autor.textContent = 'Nuevo usuario';
+
+    nuevo.append(img, p, autor);
     lista.prepend(nuevo);
     input.value = '';
   }
